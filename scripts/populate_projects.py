@@ -16,7 +16,7 @@ curr.execute("                           \
             FROM                         \
                information_schema.columns\
             WHERE                        \
-               table_name = 'project';      \
+               table_name = 'Project';      \
    ")
 data = curr.fetchall()
 for row in data:
