@@ -1,2 +1,4 @@
+pip==21.3.1
 redis
-psycopg2
+psycopg2-binary
+pythonping

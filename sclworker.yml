@@ -6,5 +6,5 @@ functions:
   sclworker:
     lang: python3
     handler: ./sclworker
-    image: sclworker:latest
+    image: jakobholst/sclworker:latest
 

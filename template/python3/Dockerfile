@@ -10,6 +10,9 @@ ARG ADDITIONAL_PACKAGE
 COPY --from=watchdog /fwatchdog /usr/bin/fwatchdog
 RUN chmod +x /usr/bin/fwatchdog
 RUN apk --no-cache add ca-certificates ${ADDITIONAL_PACKAGE}
+RUN apk add --no-cache postgresql-libs 
+RUN apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev
+
 
 
 # Add non root user
@@ -25,7 +28,7 @@ RUN chown -R app /home/app && \
 USER app
 ENV PATH=$PATH:/home/app/.local/bin:/home/app/python/bin/
 ENV PYTHONPATH=$PYTHONPATH:/home/app/python
-
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt --target=/home/app/python
 
 RUN mkdir -p function
