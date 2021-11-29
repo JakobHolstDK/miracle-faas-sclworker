@@ -23,6 +23,3 @@ for row in data:
     print(row)
 conn.close()
 
-
-print(req)
-
